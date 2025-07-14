@@ -35,7 +35,7 @@ export const accountAbstraction: SmartWalletOptions = {
   sponsorGas: false,
 };
 
-const ENTRYPOINT_ADDRESS = '0x0000000071727De22E5E9d8BAf0edAc6f37da032';
+// const ENTRYPOINT_ADDRESS = '0x0000000071727De22E5E9d8BAf0edAc6f37da032';
 const FACTORY_ADDRESS = '0x4be0ddfebca9a5a4a617dee4dece99e7c862dceb';
 
 export const wallets = [
@@ -43,7 +43,7 @@ export const wallets = [
     smartAccount: {
       chain: somniaTestnet,
       sponsorGas: true,
-      entryPoint: ENTRYPOINT_ADDRESS,
+      // entryPoint: ENTRYPOINT_ADDRESS,
       factoryAddress: FACTORY_ADDRESS,
     },
   }),
