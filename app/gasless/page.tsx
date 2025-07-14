@@ -29,7 +29,8 @@ const GaslessHome: React.FC = () => {
   // Get user's balance
   const { data: userBalance } = useReadContract(balanceOf, {
     contract: nftContract,
-    owner: smartAccount?.address!,
+    owner:
+      smartAccount?.address || '0x0000000000000000000000000000000000000000',
     queryOptions: { enabled: !!smartAccount },
   });
 
@@ -77,6 +78,11 @@ const GaslessHome: React.FC = () => {
               NFTs
             </p>
 
+            {/* Display transaction status */}
+            {txStatus && (
+              <p className='text-sm text-yellow-400 mb-2'>{txStatus}</p>
+            )}
+
             <TransactionButton
               transaction={() =>
                 prepareContractCall({
@@ -103,7 +109,7 @@ const GaslessHome: React.FC = () => {
                 } else {
                   errorMessage = error.message || 'Unknown error occurred';
                 }
-                alert(`Error: ${error.message}`);
+                alert(`Error: ${errorMessage}`);
               }}
               onTransactionSent={(result) => {
                 console.log('Transaction sent:', result.transactionHash);
